@@ -10,6 +10,7 @@ const BASE_URL = 'http://localhost:5000/api';
 
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
+const ITEM = 'ITEM';
 
 const ProfileProvider = ({ children }) => {
   const [state, dispatch] = useReducer((prevState, action) => {
@@ -23,6 +24,9 @@ const ProfileProvider = ({ children }) => {
       case LOGOUT: {
         // Reset state to logged out
         return initialState;
+      }
+      case ITEM: {
+        return { ...prevState, ...payload };
       }
       default:
         throw new Error();
@@ -41,6 +45,21 @@ const useProfileProvider = () => {
       dispatch({ type: LOGIN, payload: data });
     });
 
+  const register = credentials => axios
+    .post(`${BASE_URL}/user`, credentials)
+    .then(({ data }) => {
+      dispatch({ type: LOGIN, payload: data });
+    });
+
+  const item = credentials => axios
+    .post(`${BASE_URL}/cart`, credentials, {
+      'Content-Type': 'application/json',
+      Authorization: 'JWT Token',
+    })
+    .then(({ data }) => {
+      dispatch({ type: ITEM, payload: data });
+    });
+
   const logout = () => dispatch({
     type: LOGOUT,
   });
@@ -51,6 +70,8 @@ const useProfileProvider = () => {
     dispatch,
     login,
     logout,
+    register,
+    item,
   };
 };
 
