@@ -4,9 +4,13 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import React, { createContext, useReducer, useContext } from 'react';
 
+<<<<<<< HEAD
 const initialState = {
   loggedIn: false, name: {}, item: null, itemsList: null,
 };
+=======
+const initialState = { loggedIn: false, name: {} , item: null, itemsList: null};
+>>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
 const store = createContext(initialState);
 const { Provider } = store;
 
@@ -19,10 +23,17 @@ const ITEMSLIST = 'ITEMSLIST';
 
 axios.defaults.withCredentials = true;
 axios.defaults.headers = {
+<<<<<<< HEAD
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT, PATCH',
   'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
 };
+=======
+  "Access-Control-Allow-Origin": "*",  
+  "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, PATCH",
+  "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",     
+}
+>>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
 
 const ProfileProvider = ({ children }) => {
   const [state, dispatch] = useReducer((prevState, action) => {
@@ -68,12 +79,20 @@ const useProfileProvider = () => {
     });
 
   const item = credentials => axios
+<<<<<<< HEAD
     .post(`${BASE_URL}/cart`, { items: [credentials] })
+=======
+    .post(`${BASE_URL}/cart`, {items: [credentials]})
+>>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
     .then(({ data }) => {
       dispatch({ type: ITEM, payload: data });
     });
 
+<<<<<<< HEAD
   const getItems = credentials => axios
+=======
+    const getItems = credentials => axios
+>>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
     .get(`${BASE_URL}/cart`)
     .then(({ data }) => {
       dispatch({ type: ITEMSLIST, payload: data });
