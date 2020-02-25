@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';

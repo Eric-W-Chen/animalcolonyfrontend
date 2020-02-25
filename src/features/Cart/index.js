@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';
