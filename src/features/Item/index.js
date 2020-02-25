@@ -3,7 +3,7 @@ import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';
 
 const Item = () => {
-  const { item, state: { name: { first } } } = useProfileProvider();
+  const { state, item, state: { name: { first } } } = useProfileProvider();
   const [itemDetails, setItemDetails] = useState({ });
 
   const attemptSubmit = (event) => {
@@ -19,7 +19,7 @@ const Item = () => {
   return (
     <div className="dashboard">
       <h1>{`Welcome ${first}!`}</h1>
-      <h2>hello!</h2>
+      <h2>{ JSON.stringify(state) }</h2>
       <Logout />
 
       <form className="Item">
@@ -34,8 +34,6 @@ const Item = () => {
         </button>
       </form>
     </div>
-
-
   );
 };
 
