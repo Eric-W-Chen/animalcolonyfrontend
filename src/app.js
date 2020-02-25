@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import { ProfileProvider, useProfileProvider } from 'contexts/profile';
 import HomePage from 'features/HomePage';
 import Dashboard from 'features/Dashboard';
-
+import Register from 'components/Register';
+import Item from 'features/Item';
+import Cart from 'features/Cart';
 
 /**
  * Renders a react-router enabled app with a wrapper to facilitate shared styles
@@ -14,7 +16,10 @@ const App = () => (
     <ProfileProvider>
       <Switch>
         <ProtectedRoute path="/dashboard" component={Dashboard} />
+        <ProtectedRoute path="/item" component={Item} />
+        <ProtectedRoute path="/cart" component={Cart} />
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/register" component={Register} />
       </Switch>
     </ProfileProvider>
   </Router>
