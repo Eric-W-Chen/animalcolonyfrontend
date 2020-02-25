@@ -10,11 +10,6 @@ const Login = () => {
 
   const attemptLogin = (event) => {
     event.preventDefault();
-<<<<<<< HEAD
-    // console.log('attempt login', { userDetails });
-=======
-    console.log('attempt login', { userDetails });
->>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
     login(userDetails);
   };
 
@@ -37,13 +32,8 @@ const Login = () => {
     <div>
       <Link to="/register">Register</Link>
       <form className="login-form">
-<<<<<<< HEAD
         <input name="username" placeholder="Username" type="text" onChange={updateInput} />
         <input name="password" placeholder="Password" type="password" onChange={updateInput} />
-=======
-        <input name="username" type="text" onChange={updateInput} />
-        <input name="password" type="password" onChange={updateInput} />
->>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
         <button type="submit" onClick={attemptLogin} onChange={updateInput}>
         Login
         </button>

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 /* eslint-disable no-unused-vars */
-=======
->>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
 import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
@@ -12,11 +9,7 @@ const Register = () => {
 
   const attemptRegister = (event) => {
     event.preventDefault();
-<<<<<<< HEAD
     // console.log('attempt register', { userDetails });
-=======
-    console.log('attempt register', { userDetails });
->>>>>>> ebca08d739be6d999bbf4b2eb0d16f2b0585f433
     register(userDetails);
   };
 
