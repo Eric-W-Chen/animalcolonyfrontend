@@ -20,7 +20,7 @@ const Item = () => {
   return (
     <div className="dashboard">
       <h1>{`Welcome ${first}!`}</h1>
-      {/* // <h2>{ JSON.stringify(state) }</h2> */}
+      <h2>{JSON.stringify(state) }</h2>
       <Logout />
 
       <form className="Item">
