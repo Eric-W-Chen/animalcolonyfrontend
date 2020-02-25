@@ -2,6 +2,7 @@ import React from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';
 import LoginForm from 'components/LoginForm';
+import { Link, Redirect } from 'react-router-dom';
 
 const HomePage = () => {
   const { state, state: { loggedIn } } = useProfileProvider();
@@ -10,6 +11,8 @@ const HomePage = () => {
       <h1>Welcome to the HomePage, the future home of greatness!</h1>
       <h2>{JSON.stringify(state)}</h2>
       {loggedIn ? <Logout /> : <LoginForm />}
+      {loggedIn ? <Link to="/dashboard"> DashBoard</Link> : null}
+      { loggedIn ? <Redirect to="/dashboard" /> : null }
     </div>
   );
 };
