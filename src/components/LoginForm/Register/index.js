@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
 
-const Login = () => {
-  const { login } = useProfileProvider();
+const Register = () => {
+  const { register, state, state: { loggedIn } } = useProfileProvider();
   const [userDetails, setUserDetails] = useState({ });
 
-  const attemptLogin = (event) => {
+  const attemptRegister = (event) => {
     event.preventDefault();
-    console.log('attempt login', { userDetails });
-    login(userDetails);
+    console.log('attempt register', { userDetails });
+    register(userDetails);
   };
 
   /**
@@ -29,16 +29,26 @@ const Login = () => {
 
   return (
     <div>
-      <Link to="/register">Register</Link>
-      <form className="login-form">
-        <input name="username" type="text" onChange={updateInput} />
-        <input name="password" type="password" onChange={updateInput} />
-        <button type="submit" onClick={attemptLogin} onChange={updateInput}>
-        Login
+      { loggedIn ? <Redirect to="/dashboard" /> : null }
+      <form className="Register">
+        <p>
+          <input name="firstName" placeholder="First Name" type="text" onChange={updateInput} />
+        </p>
+        <p>
+          <input name="lastName" placeholder="Last Name" type="text" onChange={updateInput} />
+        </p>
+        <p>
+          <input name="username" placeholder="Username" type="text" onChange={updateInput} />
+        </p>
+        <p>
+          <input name="password" placeholder="Password" type="password" onChange={updateInput} />
+        </p>
+        <button type="submit" onClick={attemptRegister} onChange={updateInput}>
+        Register
         </button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
