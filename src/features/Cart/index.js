@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';
@@ -8,29 +10,35 @@ const Cart = () => {
 
   // console.log("State item", JSON.stringify(itemsList.items));
 
-  let listOfList = itemsList.items.map((object,i)=>{   
-    return(      
-    <tr key = {i}>   
-      <td>{object.name}</td>       
-      <td>{object.cost}</td>       
-      </tr>     
-      )   
-    })  
+  const listOfList = itemsList.items.map((object, i) => (
+    <tr key={i}>
+      <td>{object.name}</td>
+      <td>{object.cost}</td>
+    </tr>
+  ));
 
   return (
     <div className="Cart">
       <h1>Shopping Cart</h1>
-        <table style={{ width: '100%' , backgroundColor: 'darkgrey', color: 'white', textAlign: 'center' }}>
-          <tbody>
-              <tr key = "header" style={{ width: '100%' , backgroundColor: 'darkblue', color: 'white', textAlign: 'center' }}>
-                <th>Item</th>
-                <th>Cost</th>
-              </tr>
-    {listOfList}
-    </tbody>
-  </table>
-    <h2>Total Cost: {itemsList.totalCost}</h2>
-  </div>
+      <table style={{
+ width: '100%', backgroundColor: 'darkgrey', color: 'white', textAlign: 'center',
+}}
+      >
+        <tbody>
+          <tr
+            key="header"
+            style={{
+ width: '100%', backgroundColor: 'darkblue', color: 'white', textAlign: 'center',
+}}
+          >
+            <th>Item</th>
+            <th>Cost</th>
+          </tr>
+          {listOfList}
+        </tbody>
+      </table>
+      <h2>Total Cost: {itemsList.totalCost}</h2>
+    </div>
   );
 };
 

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
@@ -8,7 +10,7 @@ const Login = () => {
 
   const attemptLogin = (event) => {
     event.preventDefault();
-    console.log('attempt login', { userDetails });
+    // console.log('attempt login', { userDetails });
     login(userDetails);
   };
 
@@ -31,8 +33,8 @@ const Login = () => {
     <div>
       <Link to="/register">Register</Link>
       <form className="login-form">
-        <input name="username" type="text" onChange={updateInput} />
-        <input name="password" type="password" onChange={updateInput} />
+        <input name="username" placeholder="Username" type="text" onChange={updateInput} />
+        <input name="password" placeholder="Password" type="password" onChange={updateInput} />
         <button type="submit" onClick={attemptLogin} onChange={updateInput}>
         Login
         </button>

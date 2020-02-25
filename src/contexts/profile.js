@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import React, { createContext, useReducer, useContext } from 'react';
 
-const initialState = { loggedIn: false, name: {} , item: null, itemsList: null};
+const initialState = {
+  loggedIn: false, name: {}, item: null, itemsList: null,
+};
 const store = createContext(initialState);
 const { Provider } = store;
 
@@ -15,10 +19,10 @@ const ITEMSLIST = 'ITEMSLIST';
 
 axios.defaults.withCredentials = true;
 axios.defaults.headers = {
-  "Access-Control-Allow-Origin": "*",  
-  "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, PATCH",
-  "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",     
-}
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT, PATCH',
+  'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+};
 
 const ProfileProvider = ({ children }) => {
   const [state, dispatch] = useReducer((prevState, action) => {
@@ -64,12 +68,12 @@ const useProfileProvider = () => {
     });
 
   const item = credentials => axios
-    .post(`${BASE_URL}/cart`, {items: [credentials]})
+    .post(`${BASE_URL}/cart`, { items: [credentials] })
     .then(({ data }) => {
       dispatch({ type: ITEM, payload: data });
     });
 
-    const getItems = credentials => axios
+  const getItems = credentials => axios
     .get(`${BASE_URL}/cart`)
     .then(({ data }) => {
       dispatch({ type: ITEMSLIST, payload: data });

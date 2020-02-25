@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useProfileProvider } from 'contexts/profile';
 import Logout from 'components/Logout';
@@ -8,7 +9,7 @@ const Item = () => {
 
   const attemptSubmit = (event) => {
     event.preventDefault();
-    console.log('attempt submit', { itemDetails });
+    // console.log('attempt submit', { itemDetails });
     item(itemDetails);
   };
 
@@ -19,7 +20,7 @@ const Item = () => {
   return (
     <div className="dashboard">
       <h1>{`Welcome ${first}!`}</h1>
-      <h2>{ JSON.stringify(state) }</h2>
+      {/* <h2>{ JSON.stringify(state) }</h2> */}
       <Logout />
 
       <form className="Item">
